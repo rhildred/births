@@ -9,7 +9,7 @@ app.controller('births_controller', function($scope, $http) {
                 return d.province;
             },
             y: function(d){
-                return d.children;
+                return d.millions;
             },
             showLabels: true,
             duration: 500,
