@@ -1,14 +1,14 @@
 <?php
 /*
-Plugin Name: Transfer Payments
+Plugin Name: Drunk Driving
 */
-function transfer_shortcodes_init()
+function drunk_shortcodes_init()
 {
-    function transfer_shortcode($atts = [], $content = null)
+    function drunk_shortcode($atts = [], $content = null)
     {
-        $content .= "<script>var oData= " . file_get_contents("http://www.infrastructure.gc.ca/alt-format/opendata/transfer-program-programmes-de-transfert-bil.json") . "</script>";
+        $content .= "<script>var oDrunkData= " . file_get_contents("https://data.cdc.gov/api/views/ebbj-sh54/rows.json?accessType=DOWNLOAD") . "</script>";
         $content .= <<<EOT
-<div ng-app="plunker" ng-controller="MainCtrl">
+<div ng-app="drunk" ng-controller="drunk_controller">
     
     <nvd3 options="options" data="data"></nvd3>
     
@@ -17,9 +17,9 @@ function transfer_shortcodes_init()
 EOT;
         return $content;
     }
-    add_shortcode('transfer-payments-plugin', 'transfer_shortcode');
+    add_shortcode('drunk-driving-plugin', 'drunk_shortcode');
 }
-add_action('init', 'transfer_shortcodes_init');
+add_action('init', 'drunk_shortcodes_init');
 // bring in external css resources
 wp_register_style('your_css_and_js', "https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.1/nv.d3.min.css");
 wp_enqueue_style('your_css_and_js');
