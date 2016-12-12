@@ -4,7 +4,7 @@ app.controller('births_controller', function($scope, $http) {
     $scope.options = {
         chart: {
             type: 'pieChart',
-            height: 500,
+            height: 800,
             x: function(d){
                 return d.province;
             },
