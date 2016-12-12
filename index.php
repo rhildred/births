@@ -6,7 +6,7 @@ function births_shortcodes_init()
 {
     function births_shortcode($atts = [], $content = null)
     {
-        $content .= "<script>var oBirths= " . file_get_contents("https://rhildred.github.io/births/Manufacturing2015.json") . "</script>";
+        $content .= "<script>var oBirths= " . file_get_contents("https://rhildred.github.io/births/Births2013.json") . "</script>";
         $content .= <<<EOT
 <div ng-app="births" ng-controller="births_controller">
     
