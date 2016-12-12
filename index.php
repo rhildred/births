@@ -1,14 +1,14 @@
 <?php
 /*
-Plugin Name: Drunk Driving
+Plugin Name: Births Per Woman
 */
-function drunk_shortcodes_init()
+function births_shortcodes_init()
 {
-    function drunk_shortcode($atts = [], $content = null)
+    function births_shortcode($atts = [], $content = null)
     {
-        $content .= "<script>var oDrunkData= " . file_get_contents("https://data.cdc.gov/api/views/ebbj-sh54/rows.json?accessType=DOWNLOAD") . "</script>";
+        $content .= "<script>var oBirths= " . file_get_contents("https://rhildred.github.io/births/Births2013.json") . "</script>";
         $content .= <<<EOT
-<div ng-app="drunk" ng-controller="drunk_controller">
+<div ng-app="births" ng-controller="births_controller">
     
     <nvd3 options="options" data="data"></nvd3>
     
@@ -17,9 +17,9 @@ function drunk_shortcodes_init()
 EOT;
         return $content;
     }
-    add_shortcode('drunk-driving-plugin', 'drunk_shortcode');
+    add_shortcode('births-plugin', 'births_shortcode');
 }
-add_action('init', 'drunk_shortcodes_init');
+add_action('init', 'births_shortcodes_init');
 // bring in external css resources
 wp_register_style('your_css_and_js', "https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.1/nv.d3.min.css");
 wp_enqueue_style('your_css_and_js');

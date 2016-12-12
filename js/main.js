@@ -1,6 +1,6 @@
-var app = angular.module('drunk', ['nvd3']);
+var app = angular.module('births', ['nvd3']);
 
-app.controller('drunk_controller', function($scope, $http) {
+app.controller('births_controller', function($scope, $http) {
     $scope.options = {
         chart: {
             type: 'pieChart',
@@ -9,7 +9,7 @@ app.controller('drunk_controller', function($scope, $http) {
                 return d.province;
             },
             y: function(d){
-                return d.transfer;
+                return d.children;
             },
             showLabels: true,
             duration: 500,
@@ -25,6 +25,6 @@ app.controller('drunk_controller', function($scope, $http) {
             }
         }
     };
-    $scope.data = oDrunkData;
+    $scope.data = oBirths;
     
 });
